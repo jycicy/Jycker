@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("Jycker/img/messageboard/background.png"); /* 替换为你的背景图片路径 */
+            background-size: cover; /* 背景图片覆盖整个页面 */
+            background-position: center; /* 背景图片居中 */
+            background-repeat: no-repeat; /* 防止背景图片重复 */
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 97%;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .messages {
+            margin-top: 20px;
+        }
+        .message {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f9f9f9;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+        .message p {
+            margin: 0;
+            color: #555;
+        }
+        .message .timestamp {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>留言板</h1>
+        <form id="messageForm">
+            <textarea id="messageInput" placeholder="请输入您的留言..." required></textarea>
+            <button type="submit">提交留言</button>
+        </form>
+        <div class="messages" id="messagesContainer">
+            <!-- 留言内容将显示在这里 -->
+        </div>
+    </div>
+
+    <script>
+        // 获取表单和容器元素
+        const messageForm = document.getElementById("messageForm");
+        const messageInput = document.getElementById("messageInput");
+        const messagesContainer = document.getElementById("messagesContainer");
+
+        // 从 localStorage 加载留言
+        function loadMessages() {
+            const messages = JSON.parse(localStorage.getItem("messages")) || [];
+            // 倒序遍历留言数组
+            messages.reverse().forEach(message => {
+                displayMessage(message.text, message.timestamp);
+            });
+        }
+
+        // 显示留言
+        function displayMessage(text, timestamp) {
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message");
+
+            const messageContent = document.createElement("p");
+            messageContent.textContent = text;
+            messageElement.appendChild(messageContent);
+
+            const timestampElement = document.createElement("div");
+            timestampElement.classList.add("timestamp");
+            timestampElement.textContent = `时间：${timestamp}`;
+            messageElement.appendChild(timestampElement);
+
+            // 将新留言插入到容器的开头
+            messagesContainer.insertBefore(messageElement, messagesContainer.firstChild);
+        }
+
+        // 保存留言到 localStorage
+        function saveMessage(text) {
+            const messages = JSON.parse(localStorage.getItem("messages")) || [];
+            const now = new Date();
+            messages.push({ text, timestamp: now.toLocaleString() });
+            localStorage.setItem("messages", JSON.stringify(messages));
+        }
+
+        // 监听表单提交事件
+        messageForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+
+            const messageText = messageInput.value.trim();
+            if (messageText === "") {
+                alert("留言内容不能为空！");
+                return;
+            }
+
+            // 保存留言并显示
+            saveMessage(messageText);
+            displayMessage(messageText, new Date().toLocaleString());
+
+            // 清空输入框
+            messageInput.value = "";
+        });
+
+        // 页面加载时加载留言
+        loadMessages();
+    </script>
+</body>
+</html>

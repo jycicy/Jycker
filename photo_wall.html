@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>照片墙</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("Jycker/img/photowall/background1.jpg"); /* 替换为你的背景图片路径 */
+            background-size: cover; /* 背景图片覆盖整个页面 */
+            background-position: center; /* 背景图片居中 */
+            background-repeat: no-repeat; /* 防止背景图片重复 */
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .photo-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 自动调整列数 */
+            gap: 15px; /* 图片之间的间距 */
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .photo-wall img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .photo-wall img:hover {
+            transform: scale(1.05); /* 鼠标悬停时放大 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>照片墙</h1>
+    <div class="photo-wall">
+        <!-- 替换以下图片路径为你的图片 -->
+        <img src="Jycker/img\photowall\image1.png" alt="Photo 1">
+        <img src="Jycker/img\photowall\微信图片_20250425105728.jpg" alt="Photo 2">
+        <img src="Jycker/img\photowall\微信图片_20250425110230.jpg" alt="Photo 3">
+        <img src="Jycker/img\photowall\微信图片_20250425110231.jpg" alt="Photo 4">
+        <img src="Jycker/img\photowall\微信图片_202504251102301.jpg" alt="Photo 5">
+        <img src="Jycker/img\photowall\微信图片_20250425110228.jpg" alt="Photo 6">
+        <img src="Jycker/img\photowall\微信图片_20250425110229.jpg" alt="Photo 7">
+        <img src="Jycker/img\photowall\微信图片_202504251102281.jpg" alt="Photo 8">
+        <img src="Jycker/img\photowall\81e14eac02ce5e6fe82659887813589.jpg" alt="Photo 9">
+        <img src="Jycker/img\photowall\2fe7a572433a9cde26bf6edc3de9226.jpg" alt="Photo 10">
+    </div>
+</body>
+</html>

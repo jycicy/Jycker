@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>music</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #e7c3ee 100%);
+            position: relative;
+        }
+
+        audio {
+            display: none;
+        }
+
+        .player {
+            position: absolute;
+        }
+
+        .control {
+            width: 300px;
+            height: 80px;
+            background: #fff;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 20px 20px 5px rgba(132, 132, 132, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alarm {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: none;
+            transform: scale(1);
+            transition: all 0.5s ease;
+        }
+
+        .play-pause-btn {
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            margin-left: 100px;
+        }
+
+        .song-name {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="myAudio1">
+        <source src="Jycker/music/特别的人_方大同.mp3" type="audio/mpeg">
+    </audio>
+    <div class="player" style="top: 5%; left: 10%;">
+        <div class="song-name">特别的人</div>
+        <div class="control" id="control1">
+            <div class="alarm" data-image-url="Jycker/img/music/特别的人_方大同.jpg"></div>
+            <i class="play-pause-btn fa-solid fa-play"></i>
+        </div>
+    </div>
+
+    <audio id="myAudio2">
+        <source src="Jycker/music/等我回家_薛之谦.mp3" type="audio/mpeg">
+    </audio>
+    <div class="player" style="top: 15%; left: 75%;">
+        <div class="song-name">等我回家</div>
+        <div class="control" id="control2">
+            <div class="alarm" data-image-url="Jycker/img/music/等我回家_谦谦.jpg"></div>
+            <i class="play-pause-btn fa-solid fa-play"></i>
+        </div>
+    </div>
+
+    <audio id="myAudio3">
+        <source src="Jycker/music/如果可以_韦礼安.mp3" type="audio/mpeg">
+    </audio>
+    <div class="player" style="top: 30%; left: 20%;">
+        <div class="song-name">如果可以</div>
+        <div class="control" id="control3">
+            <div class="alarm" data-image-url="Jycker/img/music/如果可以_韦礼安.jpg"></div>
+            <i class="play-pause-btn fa-solid fa-play"></i>
+        </div>
+    </div>
+
+    <audio id="myAudio4">
+        <source src="Jycker/music/被人_薛之谦.mp3" type="audio/mpeg">
+    </audio>
+    <div class="player" style="top: 40%; left: 65%;">
+        <div class="song-name">被人</div>
+        <div class="control" id="control4">
+            <div class="alarm" data-image-url="Jycker/img/music/被人_谦谦.jpg"></div>
+            <i class="play-pause-btn fa-solid fa-play"></i>
+        </div>
+    </div>
+
+    <audio id="myAudio5">
+        <source src="Jycker/music/其实_薛之谦.mp3" type="audio/mpeg">
+    </audio>
+    <div class="player" style="top: 55%; left: 15%;">
+        <div class="song-name">其实</div>
+        <div class="control" id="control5">
+            <div class="alarm" data-image-url="Jycker/img/music/等我回家_谦谦.jpg"></div>
+            <i class="play-pause-btn fa-solid fa-play"></i>
+        </div>
+    </div>
+
+    <audio id="myAudio6">
+        <source src="Jycker/music/绅士_薛之谦.mp3" type="audio/mpeg">
+    </audio>
+    <div class="player" style="top: 65%; left: 70%;">
+        <div class="song-name">绅士</div>
+        <div class="control" id="control6">
+            <div class="alarm" data-image-url="Jycker/img/music/绅士_谦谦.jpg"></div>
+            <i class="play-pause-btn fa-solid fa-play"></i>
+        </div>
+    </div>
+
+    <audio id="myAudio7">
+        <source src="Jycker/music/山楂树之恋_程佳佳.mp3" type="audio/mpeg">
+    </audio>
+    <div class="player" style="top: 80%; left: 25%;">
+        <div class="song-name">山楂树之恋</div>
+        <div class="control" id="control7">
+            <div class="alarm" data-image-url="Jycker/img/music/山楂树之恋_程佳佳.jpg"></div>
+            <i class="play-pause-btn fa-solid fa-play"></i>
+        </div>
+    </div>
+
+    <audio id="myAudio8">
+        <source src="Jycker/music/林俊杰 - 交换余生.flac" type="audio/mpeg">
+    </audio>
+    <div class="player" style="top: 90%; left: 60%;">
+        <div class="song-name">交换余生</div>
+        <div class="control" id="control8">
+            <div class="alarm" data-image-url="Jycker/img/music/交换余生_JJ.jpg"></div>
+            <i class="play-pause-btn fa-solid fa-play"></i>
+        </div>
+    </div>
+
+    <script>
+        const alarms = document.querySelectorAll('.alarm');
+        alarms.forEach((alarm) => {
+            const imageUrl = alarm.dataset.imageUrl;
+            alarm.style.background = `url(${imageUrl}) no-repeat center center`;
+            alarm.style.backgroundSize = 'cover';
+        });
+
+        const playPauseBtns = document.querySelectorAll('.play-pause-btn');
+        playPauseBtns.forEach((btn, index) => {
+            const audio = document.getElementById(`myAudio${index + 1}`);
+            btn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    btn.classList.remove('fa-play');
+                    btn.classList.add('fa-pause');
+                } else {
+                    audio.pause();
+                    btn.classList.remove('fa-pause');
+                    btn.classList.add('fa-play');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>    
