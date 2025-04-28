@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>密码登录</title>
+    <link rel="stylesheet" href="Jycker/css/login.css">
+    <link rel="stylesheet" href="Jycker/static/BootStrap/css/bootstrap.css">
+    <script>
+        function validatePassword(){
+            event.preventDefault();//阻止表单提交
+            const password = document.querySelector('input[name="password"]').value;
+            if (password === "112118"){
+                window.location.href = "Jycker/home.html"; // 密码正确，跳转到 home.html
+            } else {
+                alert("密码错误，请重新输入。");
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div class="sign">
+        <input type="checkbox" id="show">
+        <label for="show" class="show-login">登录</label>
+        
+        <div class="login-box">
+            <label for="show" class="close-btn" title="close">×</label>
+            <div class="text">Login Form</div>
+            <form onsubmit="validatePassword()">
+                <div class="Account-Information">
+                    <label>请输入6位数密码</label>
+                    <input type="password" name="password" maxlength="6" required>
+                </div>
+                <div class="btn">
+                    <div class="inner"></div>
+                    <button type="submit">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="show">
+        <div class="fixed-bottom">
+            <button class="tap" onclick="alert('逗你玩呢,笨蛋')">点击获取密码</button>
+        </div>
+    </div>
+</body>
+</html>
