@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow-container{
+    position: relative;
+    width: 800px; 
+    margin: auto;
+    margin-top: -20px;
+}
+
+.slide img{
+    width: 100%;
+}
+
+.prev, .next{
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 18px;
+    margin-top: -22px;
+}
+
+.prev:hover, .next:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5%;
+}
+
+.next{
+    right: 0;
+}
+
+.text{
+    color: white;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 15px;   
+}
+
+.dots{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 2px;
+}
+
+.active{
+    background-color: #717171;
+    border-radius: 50%;
+}

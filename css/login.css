@@ -1,0 +1,222 @@
+/*背景设置*/
+body{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(115deg, #abecda 100%, #ba74d8 100%);
+}
+
+/*登录字体设置*/
+.show-login{
+    background: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(58, 125, 137);
+    cursor: pointer;
+    border-radius: 60px;     /*圆弧背景*/
+    box-shadow: 0px 0px 10px rgba(0 ,0 , 0, 0.1);
+}
+
+/*转换到登录框*/
+.show-login,.login-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+/*登录框大小背景设置*/
+.login-box{
+    display: none;
+    background: #f6edff;
+    width: 410px;                       
+    padding: 30px;
+    box-shadow: 0 0 8px;
+    border-radius: 18px;
+    
+}
+
+#show:checked~ .login-box{
+    display: block;
+}
+
+/*登录框的关闭*/
+.login-box .close-btn{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.login-box .close-btn:hover{
+    color: #3498db;
+}
+
+/*登录框标题设置*/
+.login-box .text{
+    font-size: 38px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.login-box form{
+    margin-top: -20px;
+}
+
+/*信息输入框设置*/
+.login-box form .Account-Information{
+    height: 45px;
+    width: 100%;
+    margin: 50px 0;
+    text-align: center;
+}
+
+form .Account-Information label{
+    font-size: 14px;
+}
+
+form .Account-Information input{
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 1px solid silver;
+    border-radius: 25px;
+}
+
+form .Account-Information input:focus{
+    border-color: #3498db;
+    border-bottom-width: 2px;
+}
+
+form .forget-paw{
+    margin-top: -8px;
+}
+
+form .forget-paw a{
+    color: #3498db;
+    text-decoration: none;
+}
+
+form .forget-paw a:hover{
+    text-decoration: underline;
+}
+
+form .btn{
+    margin: 28px 0;
+    height: 45px;
+    width: 103%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+form .btn .inner{
+    margin: -6px 0;
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    z-index: -1;
+    background: -webkit-linear-gradient(right, #abecda, #ba74d8, #abecda, #ba74d8);
+    transition: all 0.4s;
+}
+
+form .btn:hover .inner{
+    left: 0;
+}
+
+form .btn button{
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.fixed-bottom {
+
+    padding: 5px 10px;
+    font-size: 10px;
+    font-weight: 500;
+    bottom: 0;
+    justify-content: center;
+    text-align: center;
+    border-radius: 60px;     /*圆弧背景*/
+   
+    
+}
+
+.tap{
+    width: 100%;
+    max-width: 66px;
+    padding: 1px 0.7px;
+    color: rgb(24, 20, 20);
+    border: none;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight:5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255,107,129,0.3);
+}
+
+
+
+
+
+
+
+/* 错误提示样式 */
+.alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background: #ffebee;
+    color: #c62828;
+    border-radius: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+/* 成功页面样式 */
+.success-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.logout-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8787);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: transform 0.3s;
+}
+
+.logout-btn:hover {
+    transform: scale(1.1);
+}
+
+input[type="password"] {
+    letter-spacing: 5px;
+    font-size: 24px;
+    text-align: center;
+}
