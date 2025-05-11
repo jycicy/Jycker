@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>照片墙</title>
     <style>
+        #sakuraCanvas {
+            background-color: transparent;
+            position: fixed;
+            z-index: 999;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -44,6 +49,7 @@
     </style>
 </head>
 <body>
+    <canvas id="sakuraCanvas"></canvas>
     <h1>照片墙</h1>
     <div class="photo-wall">
         <!-- 替换以下图片路径为你的图片 -->
@@ -58,5 +64,6 @@
         <img src="img\photowall\81e14eac02ce5e6fe82659887813589.jpg" alt="Photo 9">
         <img src="img\photowall\2fe7a572433a9cde26bf6edc3de9226.jpg" alt="Photo 10">
     </div>
+    <script src="js/sakura.js"></script>
 </body>
 </html>
