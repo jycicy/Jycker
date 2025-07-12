@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>千万不能打开</title>
+  <style>
+    * {
+      /* 初始化 */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      /* 弹性布局,水平+垂直居中; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #e0f9b5;
+    }
+
+    .box {
+      /* 弹性布局,水平+垂直居中; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* 相对定位 */
+      position: relative;
+      /*开启3D效果 */
+      transform-style: preserve-3d;
+      /*设置视距 */
+      perspective: 1000px;
+      /* 默认沿着X轴旋转-20度 */
+      transform: rotateX(-20deg);
+    }
+
+    /* 盒子各个面统一样式 */
+    .side {
+      /* 绝对定位 */
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: #ffcfdf;
+      border: 1px solid #cabbe9;
+    }
+
+    /* 前 */
+    .front {
+      /* 位置 */
+      transform: translateZ(100px);
+    }
+
+    /* 后 */
+    .back {
+      /* 位置 */
+      transform: translateZ(-100px) rotateY(180deg);
+    }
+
+    /* 左 */
+    .left {
+      /* 位置 */
+      transform: translateX(-100px) rotateY(-90deg);
+    }
+
+    /* 右 */
+    .right {
+      /* 位置 */
+      transform: translateX(100px) rotateY(90deg);
+    }
+
+    /* 上 */
+    .top {
+      /* 位置 */
+      transform: translateY(-100px) rotateX(90deg);
+      /* 透明的 */
+      background: transparent;
+      transform-style: preserve-3d;
+    }
+
+    .top div {
+      background-color: #ffcfdf;
+      /* 绝对定位 */
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      border: 1px solid #cabbe9;
+      /* 设置过度 */
+      transition: 0.5s;
+    }
+
+    .top .tl {
+      left: 0;
+      /* 设置旋转急待你为左边 */
+      transform-origin: left;
+    }
+
+    .top .tr {
+      right: 0;
+      /* 设置旋转急待你为右边 */
+      transform-origin: right;
+    }
+
+    .bottom {
+      /* 位置 */
+      transform: translateY(100px) rotateX(-90deg);
+      /* 阴影 */
+      box-shadow: 5px -5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .box:hover .top .tl {
+      /* 旋转角度 */
+      transform: rotateY(-135deg);
+    }
+
+    .box:hover .top .tr {
+      /* 旋转角度 */
+      transform: rotateY(135deg);
+    }
+
+    .box .text {
+      width: 200px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 400;
+      transition: 0.6s;
+    }
+
+    .box:hover .text {
+      transform: translateY(-250px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="side front"></div>
+    <div class="side back"></div>
+    <div class="side left"></div>
+    <div class="side right"></div>
+    <div class="side top">
+      <div class="tl"></div>
+      <div class="tr"></div>
+    </div>
+    <div class="side bottom"></div>
+    <div class="text">点开的人会幸福!</div>
+  </div>
+
+</body>
+
+</html>
