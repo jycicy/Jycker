@@ -1,0 +1,320 @@
+body {
+  background-color: #ffc8c8;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 15%;
+}
+
+/* 多云 */
+.cloudy {
+  /* 相对定位 */
+  position: absolute;
+  height: 100%;
+  aspect-ratio: 1.5 / 1;
+  right: 0;
+  top: 0;
+
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* 云朵 */
+.cloudy .cloud {
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: -35px 11px 0 -11px #fff,
+    33px 15px 0 -15px #fff,
+    0 0 0 6px lightgray,
+    -35px 11px 0 -5px lightgray,
+    33px 15px 0 -9px lightgray;
+}
+
+/* 云朵下边为直边 */
+.cloudy .cloud::after {
+  content: '';
+  position: absolute;
+  width: 73px;
+  height: 16px;
+  background-color: #fff;
+  box-shadow: 0 6px 0 0 lightgray;
+  bottom: 0;
+  left: -8px;
+}
+
+/* 小云朵 */
+.cloudy .cloud:nth-child(2) {
+  z-index: 0;
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: -35px 11px 0 -11px #fff,
+    33px 15px 0 -15px #fff,
+    0 0 0 6px lightgray,
+    -35px 11px 0 -5px lightgray,
+    33px 15px 0 -9px lightgray;
+  opacity: 0.3;
+  transform: scale(0.5) translate(96px, -48px);
+  animation: couldy 3s linear infinite;
+}
+
+/* 小云朵飘动 */
+@keyframes couldy {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translate(-150px, -48px);
+  }
+
+}
+
+
+
+
+.sunny {
+  /* 相对定位 */
+  position: absolute;
+  height: 100%;
+  aspect-ratio: 1.5 / 1;
+  right: 0;
+  top: 0;
+
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+/* 太阳 */
+.sunny .sun {
+  width: 40px;
+  width: 40px;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+
+  /* 太阳的颜色 */
+  box-shadow: 0 0 0 6px #e6a62f;
+  /* 太阳的光晕颜色 */
+  animation: sunny 10s linear infinite;
+}
+
+.sunny .sun .rays {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 18px;
+  background-color: #e6a62f;
+  box-shadow: 0 86px #e6a62f;
+  border-radius: 4px;
+}
+
+.sunny .sun .rays::before,
+.sunny .sun .rays::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 18px;
+  background-color: #e6a62f;
+  box-shadow: 0 86px #e6a62f;
+  border-radius: 4px;
+  transform: rotate(60deg);
+  transform-origin: 50% 52px;
+}
+
+.sunny .sun .rays::before {
+  transform: rotate(120deg);
+}
+
+@keyframes sunny {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rainy {
+  /* 相对定位 */
+  position: absolute;
+  height: 100%;
+  aspect-ratio: 1.5 / 1;
+  --bg-color: #ffc8c8;
+  background-color: var(--bg-color);
+  right: 0;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 云朵 */
+.rainy .cloud {
+  width: 60px;
+  height: 60px;
+  background-color: var(--bg-color);
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: -35px 11px 0 -11px var(--bg-color),
+    33px 15px 0 -15px var(--bg-color),
+    0 0 0 6px lightgray,
+    -35px 11px 0 -5px lightgray,
+    33px 15px 0 -9px lightgray;
+}
+
+.rainy .cloud::after {
+  content: '';
+  position: absolute;
+  width: 73px;
+  height: 16px;
+  background-color: var(--bg-color);
+  box-shadow: 0 6px 0 0 lightgray;
+  bottom: 0;
+  left: -8px;
+}
+
+/* 雨滴背景范围 */
+.rainy .rain {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: var(--bg-color);
+  top: 55px;
+  left: 32%;
+}
+
+/* 雨滴 */
+.rainy .rain::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #0cf;
+  border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
+  top: 40px;
+  left: 70%;
+  transform: translateX(-50%);
+  margin: -16px 0 0 -15px;
+  transform: rotate(-25deg);
+  box-shadow: 10px 14px 0 -2px rgba(255, 255, 255, 0.2),
+    -12px 20px 0 -2px rgba(255, 255, 255, 0.2),
+    -22px 2px 0 rgba(255, 255, 255, 0.2);
+  animation: rainy 2s linear infinite;
+}
+
+/* 雨滴动画 */
+@keyframes rainy {
+  0% {
+    background-color: #0cf;
+    box-shadow: 10px 14px 0 -2px rgba(255, 255, 255, 0.2),
+      -12px 20px 0 -2px rgba(255, 255, 255, 0.2),
+      -22px 2px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  25% {
+    box-shadow: 10px 14px 0 -2px rgba(255, 255, 255, 0.2),
+      -12px 20px 0 -2px #0cf,
+      -22px 2px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 10px 14px 0 -2px #0cf,
+      -12px 20px 0 -2px rgba(255, 255, 255, 0.2),
+      -22px 2px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  100% {
+    box-shadow: 10px 14px 0 -2px rgba(255, 255, 255, 0.2),
+      -12px 20px 0 -2px rgba(255, 255, 255, 0.2),
+      -22px 2px 0 #0cf;
+  }
+}
+
+.box1 {
+  width: 200px;
+  height: 240px;
+
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.box1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.box2 {
+  width: 200px;
+  height: 100px;
+  /* background-color: #a0d4f7; */
+  position: absolute;
+  left: 57%;
+  top: 24%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease-in-out;
+}
+
+.btn {
+  position: absolute;
+  border-radius: 18px;
+  border: 2px solid #716c7c;
+}
+
+#btn-n {
+  left: 39%;
+  top: 55%;
+  width: 80px;
+  height: 40px;
+  transform: translateX(-50%);
+}
+
+#btn-y {
+  left: 61%;
+  top: 55%;
+  width: 80px;
+  height: 40px;
+  transform: translateX(-50%);
+}
+
+.text {
+  position: absolute;
+
+  width: 300px;
+  height: 350px;
+  left: 50%;
+  top: 73%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #323232;
+  text-align: center;
+  /* 字体 */
+  font-family: 'Arial', sans-serif;
+}
